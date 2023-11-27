@@ -13,6 +13,10 @@ public class Tarea {
         descripcion = description;
         responsable = resposible;
     }
+    
+    public Tarea(){
+
+    }
 
     /* getters */
     public String getNome() {
@@ -61,6 +65,14 @@ public class Tarea {
         
         if (completado==false) {
             completado=true;
+        }
+    }
+
+    public void tareacompletada (){
+        if(completado==true){
+            System.out.println("esta completado");
+        }else{
+            System.out.println("no esta");
         }
     }
 
