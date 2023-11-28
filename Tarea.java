@@ -5,13 +5,17 @@ public class Tarea {
     public boolean completado = false;
     public String descripcion;
     public String responsable;
+    public String prioridad;
 
-    public Tarea(String name, int id, boolean completed, String description, String resposible) {
+
+
+    public Tarea(String name, int id, boolean completed, String description, String resposible, String prioridad) {
         nome = name;
         identificador = id;
         completado = completed;
         descripcion = description;
         responsable = resposible;
+        this.prioridad=prioridad;
     }
     
     public Tarea(){
@@ -19,6 +23,11 @@ public class Tarea {
     }
 
     /* getters */
+        public String getPrioridad() {
+        return prioridad;
+    }
+
+
     public String getNome() {
         return nome;
     }
@@ -60,6 +69,9 @@ public class Tarea {
     public void setCompletado(boolean comp) {
         completado = comp;
     }
+        public void setPrioridad(String prioridad) {
+        this.prioridad = prioridad;
+    }
 
     public void completarTarea(){
         
@@ -74,7 +86,10 @@ public class Tarea {
         }else{
             System.out.println("no esta");
         }
+        
     }
+
+    
 
     
     

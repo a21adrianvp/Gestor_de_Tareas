@@ -1,8 +1,8 @@
-#AUTORES
+# AUTORES
 Alejandro
 Adrian
 Izan
 Elena
 
-#Descripcion
+# Descripcion
 Este programa é para gestionar tareas.
