@@ -7,17 +7,17 @@ public class GestorDeTareas {
         Scanner sca = new Scanner(System.in);
         ArrayList<Tarea> listaTarea = new ArrayList<Tarea>();
         String caracter;
-     
 
         do {
-                System.out.println("escribe una letra para introducirte al siguiente menú");
-                System.out.println("a) agregar tarea");
-                System.out.println("b) listas tarea");
-                System.out.println("c)eliminar tarea");
-                System.out.println("d)salir menú");
-                char letra = sca.next().charAt(0);
-                caracter = String.valueOf(letra);
-                
+            System.out.println("Escribe una letra para introducirte al siguiente menú");
+            System.out.println("a)Agregar tarea");
+            System.out.println("b)Listas tarea");
+            System.out.println("c)Eliminar tarea");
+            System.out.println("d)Salir menú");
+            System.out.println("e)Gestión de comentarios");
+            char letra = sca.next().charAt(0);
+            caracter = String.valueOf(letra);
+
             switch (caracter) {
 
                 case "a":
@@ -41,28 +41,89 @@ public class GestorDeTareas {
                     break;
 
                 case "b":
-                for ( Tarea tarealista : listaTarea ) {
                     System.out.println("las tareas son :");
-                    System.out.println(tarealista.identificador+" "+tarealista.nome);
-                }
+                    for (Tarea tarealista : listaTarea) {
+
+                        System.out.println(tarealista.identificador + " " + tarealista.nome);
+                    }
                     break;
 
                 case "c":
                     System.out.println("Identificador: ");
                     int id = sca.nextInt();
-                    for(int i=0; i<listaTarea.size(); i++){
-                      if(listaTarea.get(i).identificador == id){
-                        listaTarea.remove(listaTarea.get(i));
-                      }
+                    for (int i = 0; i < listaTarea.size(); i++) {
+                        if (listaTarea.get(i).identificador == id) {
+                            listaTarea.remove(listaTarea.get(i));
+                        }
                     }
-                        
+
                     break;
                 case "d":
                     break;
 
-            }
-    
+                case "e":
+                    System.out.println("Selecciona una letra para variar algun comentario:");
+                    System.out.println("a)Agregar:");
+                    System.out.println("b)Modificar:");
+                    System.out.println("c)Eliminar:");
+                    System.out.println("d)Visualizar:");
 
-     }while(!caracter.equals("d"));
+                    char letra2 = sca.next().charAt(0);
+                    String caracter2 = String.valueOf(letra2);
+
+                    switch (caracter2) {
+                        case "a":
+                            System.out.println("Indica su identificador:");
+                            id = sca.nextInt();
+                            for (int i = 0; i < listaTarea.size(); i++) {
+                                if (listaTarea.get(i).identificador == id) {
+                                    System.out.println("inserta el comentario que deseas agregar");
+                                    sca.nextLine();
+                                    String comentarios = sca.nextLine();
+                                    listaTarea.get(i).setComentarios(comentarios);
+                                    System.out.println("comentario agregado");
+                                }
+                            }
+                            break;
+                        case "b":
+                            System.out.println("Indica su identificador:");
+                            id = sca.nextInt();
+                            for (int i = 0; i < listaTarea.size(); i++) {
+                                if (listaTarea.get(i).identificador == id) {
+                                    System.out.println("inserta el comentario que deseas modificar");
+                                    sca.nextLine();
+                                    String comentarios = sca.nextLine();
+                                    listaTarea.get(i).setComentarios(comentarios);
+                                    System.out.println("comentario modificado");
+                                }
+                            }
+                            break;
+                        case "c":
+                            System.out.println("Indica su identificador:");
+                            id = sca.nextInt();
+                            for (int i = 0; i < listaTarea.size(); i++) {
+                                if (listaTarea.get(i).identificador == id) {
+                                    sca.nextLine();
+                                    listaTarea.get(i).setComentarios("not comments");
+                                    System.out.println("comentario eliminado");
+                                }
+                            }
+                            break;
+                        case "d":
+                            System.out.println("Indica su identificador:");
+                            id = sca.nextInt();
+                            for (int i = 0; i < listaTarea.size(); i++) {
+                                if (listaTarea.get(i).identificador == id) {
+                                    System.out.println(listaTarea.get(i).getComentarios());
+                                }
+                            }
+                            break;
+                    }
+
+            }
+
+        } while (!caracter.equals("d"));
+
+        sca.close();
     }
 }

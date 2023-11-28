@@ -5,13 +5,15 @@ public class Tarea {
     public boolean completado = false;
     public String descripcion;
     public String responsable;
+    public String comentarios;
 
-    public Tarea(String name, int id, boolean completed, String description, String resposible) {
+    public Tarea(String name, int id, boolean completed, String description, String resposible, String comment) {
         nome = name;
         identificador = id;
         completado = completed;
         descripcion = description;
         responsable = resposible;
+        comentarios = comment;
     }
     
     public Tarea(){
@@ -38,6 +40,11 @@ public class Tarea {
     public boolean getCompletado() {
         return completado;
     }
+    
+    public String getComentarios() {
+        return comentarios;
+    }
+    
 
     /* setters */
 
@@ -61,6 +68,11 @@ public class Tarea {
         completado = comp;
     }
 
+     public void setComentarios(String comment) {
+        comentarios = comment;
+    }
+
+
     public void completarTarea(){
         
         if (completado==false) {
@@ -76,6 +88,9 @@ public class Tarea {
         }
     }
 
+    
+
+   
     
     
 }
