@@ -5,7 +5,6 @@ public class Tarea {
     public boolean completado = false;
     public String descripcion;
     public String responsable;
-    public String prioridad;
 
 
 
@@ -15,7 +14,6 @@ public class Tarea {
         completado = completed;
         descripcion = description;
         responsable = resposible;
-        this.prioridad=prioridad;
     }
     
     public Tarea(){
@@ -23,9 +21,6 @@ public class Tarea {
     }
 
     /* getters */
-        public String getPrioridad() {
-        return prioridad;
-    }
 
 
     public String getNome() {
@@ -69,10 +64,8 @@ public class Tarea {
     public void setCompletado(boolean comp) {
         completado = comp;
     }
-        public void setPrioridad(String prioridad) {
-        this.prioridad = prioridad;
-    }
 
+    
     public void completarTarea(){
         
         if (completado==false) {
