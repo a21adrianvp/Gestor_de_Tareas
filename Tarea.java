@@ -6,15 +6,18 @@ public class Tarea {
     public String descripcion;
     public String responsable;
     public String comentarios;
+    public String fechalimite;
 
-    public Tarea(String name, int id, boolean completed, String description, String resposible, String comment) {
+    public Tarea(String name, int id, boolean completed, String description, String resposible, String comment,String limitdate) {
         nome = name;
         identificador = id;
         completado = completed;
         descripcion = description;
         responsable = resposible;
         comentarios = comment;
+        fechalimite = limitdate;
     }
+    
     
     public Tarea(){
 
@@ -45,6 +48,10 @@ public class Tarea {
         return comentarios;
     }
     
+    public String getFechalimite() {
+        return fechalimite;
+    }
+    
 
     /* setters */
 
@@ -72,6 +79,10 @@ public class Tarea {
         comentarios = comment;
     }
 
+    public void setFechalimite(String fechalimite) {
+        this.fechalimite = fechalimite;
+    }
+
 
     public void completarTarea(){
         
@@ -88,9 +99,8 @@ public class Tarea {
         }
     }
 
+}
+
     
 
    
-    
-    
-}

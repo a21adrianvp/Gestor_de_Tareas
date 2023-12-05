@@ -15,6 +15,7 @@ public class GestorDeTareas {
             System.out.println("c)Eliminar tarea");
             System.out.println("d)Salir menú");
             System.out.println("e)Gestión de comentarios");
+            System.out.println("f)Gestión de fechas");
             char letra = sca.next().charAt(0);
             caracter = String.valueOf(letra);
 
@@ -116,11 +117,56 @@ public class GestorDeTareas {
                                 if (listaTarea.get(i).identificador == id) {
                                     System.out.println(listaTarea.get(i).getComentarios());
                                 }
-                            }
-                            break;
-                    }
+                            }break;
+                        } 
 
+                case "f":
+                            System.out.println("introduce una letra para introducirte en el gestor:");
+                            System.out.println("a) añadir fecha límite");
+                            System.out.println("b) filtrar por fecha límite");
+                            System.out.println("c) visualizar fecha límite");
+                            letra = sca.next().charAt(0);
+                            caracter = String.valueOf(letra);
+
+                            switch (caracter) {
+                                case "a":
+                                    System.out.println("Indica su identificador:");
+                                    id = sca.nextInt();
+                                    for (int i = 0; i < listaTarea.size(); i++) {
+                                        if (listaTarea.get(i).identificador == id) {
+                                            System.out.println("inserta la fecha límite que deseas agregar");
+                                            sca.nextLine();
+                                            String fechalimite = sca.nextLine();
+                                            listaTarea.get(i).setFechalimite(fechalimite);
+                                            System.out.println("fecha límite agregada");
+                                        }
+                                    }
+                                    break;
+
+                                case "b":
+                                    sca.nextLine();
+                                    System.out.println("Indica su fechalimite:");
+                                    String fechalim = sca.nextLine();
+                                    for (int i = 0; i < listaTarea.size(); i++) {
+                                        if (listaTarea.get(i).fechalimite.equals(fechalim)) {
+                                            System.out.println("su identificador es"+listaTarea.get(i).getNome());
+                                        }
+                                    }
+                                    break;
+
+                                case "c":
+                                    System.out.println("Indica su identificador:");
+                                    id = sca.nextInt();
+                                    for (int i = 0; i < listaTarea.size(); i++) {
+                                        if (listaTarea.get(i).identificador == id) {
+                                            System.out.println(listaTarea.get(i).getFechalimite());
+                                        }
+                                    }
+                                    break;
+                            }
             }
+
+            
 
         } while (!caracter.equals("d"));
 
