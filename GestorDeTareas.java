@@ -16,6 +16,8 @@ public class GestorDeTareas {
             System.out.println("d)Salir menú");
             System.out.println("e)Gestión de comentarios");
             System.out.println("f)Gestión de fechas");
+            System.out.println("z) Implementa prioridad");
+            System.out.println("x) Filtro de prioridad");
             char letra = sca.next().charAt(0);
             caracter = String.valueOf(letra);
 
@@ -23,7 +25,7 @@ public class GestorDeTareas {
 
                 case "a":
                     System.out.println("Escribe los datos de la tarea: titulo,identificador,descripcion,responsable.");
-                    Tarea tarea = new Tarea();
+                   Tarea tarea = new Tarea();
                     System.out.println("Título: ");
                     sca.nextLine();
                     String titulo = sca.nextLine();
@@ -47,6 +49,7 @@ public class GestorDeTareas {
 
                         System.out.println(tarealista.identificador + " " + tarealista.nome);
                     }
+
                     break;
 
                 case "c":
@@ -60,7 +63,38 @@ public class GestorDeTareas {
 
                     break;
                 case "d":
+                System.out.println("Fin do programa.");
                     break;
+                case "z":
+                System.out.println("Escolle tarea a implementar prioridad");
+                int tareaId=sca.nextInt();
+                 for (Tarea tarea2 : listaTarea) {
+                   
+                         if(tarea2.getIdentificador()==tareaId){
+                            System.out.println("Escolle prioridade, baixa, media ou alta");
+                            sca.nextLine();
+                            String novaPrioridad=sca.nextLine();
+                            tarea2.setPrioridad(novaPrioridad);
+                            break;
+                         }
+                         }
+                       
+                 break;
+                
+                case "x":
+                System.out.println("Selecciona prioridad a filtrar:");
+                sca.nextLine();
+                String prio=sca.nextLine();
+                for (Tarea t : listaTarea) {
+                    if(t.getPrioridad().equals(prio)){
+                        System.out.println("nombre : "+t.getNome()+" ID "+t.getIdentificador());
+                    }
+                    
+                }
+                break;
+                    default:
+                    System.out.println("Escolle unha opción válida.");
+
 
                 case "e":
                     System.out.println("Selecciona una letra para variar algun comentario:");
@@ -68,8 +102,8 @@ public class GestorDeTareas {
                     System.out.println("b)Modificar:");
                     System.out.println("c)Eliminar:");
                     System.out.println("d)Visualizar:");
-
-                    char letra2 = sca.next().charAt(0);
+                    
+                 char letra2 = sca.next().charAt(0);
                     String caracter2 = String.valueOf(letra2);
 
                     switch (caracter2) {
@@ -120,7 +154,7 @@ public class GestorDeTareas {
                             }break;
                         } 
 
-                case "f":
+                         case "f":
                             System.out.println("introduce una letra para introducirte en el gestor:");
                             System.out.println("a) añadir fecha límite");
                             System.out.println("b) filtrar por fecha límite");
@@ -164,12 +198,13 @@ public class GestorDeTareas {
                                     }
                                     break;
                             }
-            }
+
+                        }
 
             
 
-        } while (!caracter.equals("d"));
+        }while(!caracter.equals("d"));
 
-        sca.close();
-    }
+    sca.close();
+}
 }

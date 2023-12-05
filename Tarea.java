@@ -7,8 +7,9 @@ public class Tarea {
     public String responsable;
     public String comentarios;
     public String fechalimite;
+    public String prioridad;
 
-    public Tarea(String name, int id, boolean completed, String description, String resposible, String comment,String limitdate) {
+    public Tarea(String name, int id, boolean completed, String description, String resposible, String comment,String limitdate,String prioridad) {
         nome = name;
         identificador = id;
         completado = completed;
@@ -16,6 +17,7 @@ public class Tarea {
         responsable = resposible;
         comentarios = comment;
         fechalimite = limitdate;
+        this.prioridad=prioridad;
     }
     
     
@@ -24,6 +26,11 @@ public class Tarea {
     }
 
     /* getters */
+        public String getPrioridad() {
+        return prioridad;
+    }
+
+
     public String getNome() {
         return nome;
     }
@@ -74,6 +81,9 @@ public class Tarea {
     public void setCompletado(boolean comp) {
         completado = comp;
     }
+        public void setPrioridad(String prioridad) {
+        this.prioridad = prioridad;
+    }
 
      public void setComentarios(String comment) {
         comentarios = comment;
@@ -97,8 +107,8 @@ public class Tarea {
         }else{
             System.out.println("no esta");
         }
+        
     }
-
 }
 
     
